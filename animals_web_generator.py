@@ -28,24 +28,27 @@ def get_animal_facts(data):
     for animal in data:
         animal_data_string += '<li class="cards__item">\n'
         try:
-            animal_data_string += f"Name: {animal['name']}\n"
+            animal_data_string += f'  <div class="card__title">{animal['name']}\n'
         except KeyError:
             pass
-        
+        animal_data_string += '  <p class="card__text">\n' 
         try:
-            animal_data_string += f"Diet: {animal['characteristics']['diet']}\n"
+            animal_data_string += f"    <strong>Location:</strong> {animal['locations'][0]}<br/>\n"
         except KeyError:
             pass
-        
         try:
-            animal_data_string += f"Location: {animal['locations'][0]}\n"
+            animal_data_string += f"    <strong>Type:</strong> {animal['characteristics']['type']}<br/>\n"
         except KeyError:
             pass
-        
         try:
-            animal_data_string += f"Type: {animal['characteristics']['type']}\n"
+            animal_data_string += f"    <strong>Diet:</strong> {animal['characteristics']['diet']}<br/>\n"
         except KeyError:
             pass
+
+        animal_data_string += '  </p>\n'
+        animal_data_string += '  </li>\n'
+        
+    
         animal_data_string += '</li>\n'
     return animal_data_string
         
