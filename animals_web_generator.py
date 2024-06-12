@@ -23,14 +23,17 @@ def save_data(filename, data):
 def get_animal_facts(data):
     '''Print data from animal dictionary'''
     animal_data_string = ""
+
+    # Iterate animal dict extract data add with html tags to animal_data_string
     for animal in data:
+        animal_data_string += '<li class="cards__item">\n'
         try:
-            animal_data_string += f"name: {animal['name']}\n"
+            animal_data_string += f"Name: {animal['name']}\n"
         except KeyError:
             pass
         
         try:
-            animal_data_string += f"diet: {animal['characteristics']['diet']}\n"
+            animal_data_string += f"Diet: {animal['characteristics']['diet']}\n"
         except KeyError:
             pass
         
@@ -40,10 +43,10 @@ def get_animal_facts(data):
             pass
         
         try:
-            animal_data_string += f"type: {animal['characteristics']['type']}\n"
+            animal_data_string += f"Type: {animal['characteristics']['type']}\n"
         except KeyError:
             pass
-        animal_data_string += "\n\n"
+        animal_data_string += '</li>\n'
     return animal_data_string
         
 
