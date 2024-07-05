@@ -1,5 +1,5 @@
 import json 
-
+import data_fetcher
 
 def load_data(file_path):
     '''Loads json file'''
@@ -56,8 +56,10 @@ def get_animal_facts(data):
 
 def main():
     # Load all the data 
-    animals_json = load_data('animals_data.json')
-    animal_facts = get_animal_facts(animals_json)
+    #animals_json = load_data('animals_data.json')
+    animal_name = input("Please enter an animal: ")
+    data = data_fetcher.fetch_data(animal_name)
+    animal_facts = get_animal_facts(data)
     animals_html_file = load_html('animals_template.html')
 
     # Replace somethin in animals_html_file
