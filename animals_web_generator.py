@@ -28,7 +28,7 @@ def get_animal_facts(data):
     for animal in data:
         animal_data_string += '<li class="cards__item">\n'
         try:
-            animal_data_string += f'  <div class="card__title">{animal['name']}</div>\n'
+            animal_data_string += f'  <div class="card__title">{animal["name"]}</div>\n'
         except KeyError:
             pass
         animal_data_string += '  <p class="card__text">\n' 
@@ -59,6 +59,7 @@ def main():
     #animals_json = load_data('animals_data.json')
     animal_name = input("Please enter an animal: ")
     data = data_fetcher.fetch_data(animal_name)
+    print(data)
     animal_facts = get_animal_facts(data)
     animals_html_file = load_html('animals_template.html')
 
