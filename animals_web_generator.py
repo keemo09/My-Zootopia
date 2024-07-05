@@ -28,7 +28,7 @@ def get_animal_facts(data):
     for animal in data:
         animal_data_string += '<li class="cards__item">\n'
         try:
-            animal_data_string += f'  <div class="card__title">{animal['name']}\n'
+            animal_data_string += f'  <div class="card__title">{animal['name']}</div>\n'
         except KeyError:
             pass
         animal_data_string += '  <p class="card__text">\n' 
